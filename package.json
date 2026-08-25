@@ -1,0 +1,26 @@
+{
+  "name": "Nexum",
+  "displayName": "Nexum",
+  "description": "Un tema oscuro personalizado para VS Code",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ramvex-dev/Nexum-Theme.git"
+  },
+  "publisher": "ramvex-dev",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nexum Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nexum.json"
+      }
+    ]
+  }
+}
