@@ -4,6 +4,26 @@ Un tema oscuro personalizado para VS Code.
 
 ---
 
+## Lenguajes y entornos compatibles
+
+Nexum-Dark está diseñado en temas de color basados en TextMate. La sintaxis se ha probado con los siguientes lenguajes y formatos:
+
+- **Java**
+- **JavaScript**
+- **TypeScript**
+- **JSX / React**
+- **Python**
+- **PHP**
+- **HTML**
+- **CSS**
+- **JSON**
+- **XML**
+- **YAML**
+
+La apariencia puede variar ligeramente según la extensión de lenguaje instalada y el resaltado semántico activado en VS Code.
+
+---
+
 ## Requisitos
 
 Para compilar el tema necesitas tener instalado **Node.js** y la herramienta oficial de empaquetado de VS Code (`vsce`).
