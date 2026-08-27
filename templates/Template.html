@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!--
+ * ============================================================
+ * HTML SYNTAX COLOR TEST
+ * ============================================================
+ * Archivo diseñado para probar los diferentes tokens de
+ * coloreado de sintaxis en Visual Studio Code.
+ * ============================================================
+-->
+
+
+<!-- ============================================================
+     Comments
+     ============================================================ -->
+
+<!-- Comentario de una línea -->
+
+<!--
+ * Comentario multilínea
+ *
+ * TODO: revisar esta sección
+ * FIXME: corregir este comportamiento
+ * NOTE: información importante
+-->
+
+<!--[if IE]>
+    Comentario condicional (solo Internet Explorer)
+<![endif]-->
+
+
+<!-- ============================================================
+     Document Structure
+     ============================================================ -->
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="HTML Syntax Color Test"
+    >
+
+    <title>HTML Syntax Color Test</title>
+
+    <base href="/">
+
+    <!-- Enlaces a recursos externos -->
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+    <link
+        rel="icon"
+        href="favicon.ico"
+        type="image/x-icon"
+    >
+
+    <!-- Estilos embebidos (Embedded CSS) -->
+    <style>
+        body {
+            color: #333333;
+            background-color: white;
+            font-size: 16px;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+
+    <!-- Scripts embebidos (Embedded JavaScript) -->
+    <script>
+        const APPLICATION_NAME = "HTML Color Test";
+
+        function main() {
+            console.log("Hello World");
+        }
+
+        document.addEventListener("DOMContentLoaded", main);
+    </script>
+
+    <!-- Scripts externos -->
+    <script src="app.js" defer></script>
+
+    <script type="module" src="module.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ============================================================
+         Headings & Text Content
+         ============================================================ -->
+
+    <h1>Encabezado Nivel 1</h1>
+    <h2>Encabezado Nivel 2</h2>
+    <h3>Encabezado Nivel 3</h3>
+    <h4>Encabezado Nivel 4</h4>
+    <h5>Encabezado Nivel 5</h5>
+    <h6>Encabezado Nivel 6</h6>
+
+    <p>
+        Este es un párrafo con
+        <strong>texto en negrita</strong>,
+        <em>texto en itálica</em>,
+        <mark>texto resaltado</mark>,
+        <small>texto pequeño</small>,
+        <del>texto eliminado</del>,
+        <ins>texto insertado</ins>,
+        <sub>subíndice</sub>,
+        <sup>superíndice</sup> y
+        <abbr title="Hypertext Markup Language">HTML</abbr>.
+    </p>
+
+    <p>
+        Texto con
+        <code>const variable = "Hello World";</code>,
+        <kbd>Ctrl + S</kbd>,
+        <samp>output del programa</samp> y
+        <var>variable</var>.
+    </p>
+
+    <blockquote cite="https://example.com">
+        Esta es una cita en bloque.
+    </blockquote>
+
+    <pre><code>
+function helloWorld() {
+    return "Hello World";
+}
+    </code></pre>
+
+    <hr>
+
+
+    <!-- ============================================================
+         Entities
+         ============================================================ -->
+
+    <p>
+        Entidades predefinidas:
+        &lt; &gt; &amp; &quot; &apos; &nbsp;
+    </p>
+
+    <p>
+        Entidades con nombre:
+        &copy; &reg; &trade; &hellip; &mdash; &euro;
+    </p>
+
+    <p>
+        Entidades numéricas y hexadecimales:
+        &#169; &#8212; &#128512; &#x00A9; &#x2014; &#x1F600;
+    </p>
+
+
+    <!-- ============================================================
+         Links & Media
+         ============================================================ -->
+
+    <a href="https://example.com">Enlace externo</a>
+
+    <a
+        href="page.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Enlace interno"
+    >
+        Enlace interno
+    </a>
+
+    <a href="mailto:manu@example.com">Enviar correo</a>
+
+    <a href="#section-id">Enlace ancla</a>
+
+    <a href="document.pdf" download>Descargar PDF</a>
+
+    <img
+        src="image.png"
+        alt="Descripción de la imagen"
+        width="300"
+        height="200"
+        loading="lazy"
+    >
+
+    <picture>
+        <source srcset="image.webp" type="image/webp">
+        <img src="image.png" alt="Imagen responsive">
+    </picture>
+
+    <video
+        controls
+        width="640"
+        height="360"
+        poster="poster.jpg"
+    >
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+    </video>
+
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <iframe
+        src="https://example.com"
+        width="600"
+        height="400"
+        title="Ejemplo embebido"
+        loading="lazy"
+        allowfullscreen
+    ></iframe>
+
+
+    <!-- ============================================================
+         Lists
+         ============================================================ -->
+
+    <ul>
+        <li>Elemento uno</li>
+        <li>Elemento dos</li>
+        <li>Elemento tres</li>
+    </ul>
+
+    <ol>
+        <li>Primero</li>
+        <li>Segundo</li>
+        <li>Tercero</li>
+    </ol>
+
+    <ol type="I" start="10">
+        <li>Elemento numerado</li>
+        <li>Elemento numerado</li>
+    </ol>
+
+    <ul>
+        <li>Nivel 1
+            <ul>
+                <li>Nivel 2
+                    <ul>
+                        <li>Nivel 3</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <dl>
+        <dt>Término</dt>
+        <dd>Definición del término</dd>
+    </dl>
+
+
+    <!-- ============================================================
+         Tables
+         ============================================================ -->
+
+    <table>
+        <caption>Ejemplo de tabla</caption>
+
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Ciudad</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Manu</td>
+                <td>30</td>
+                <td rowspan="2">Madrid</td>
+            </tr>
+
+            <tr>
+                <td>Juan</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3">Fin de la tabla</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+    <!-- ============================================================
+         Forms
+         ============================================================ -->
+
+    <form
+        action="/submit"
+        method="post"
+        enctype="multipart/form-data"
+        novalidate
+    >
+
+        <fieldset>
+            <legend>Información personal</legend>
+
+            <label for="username">Usuario</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Escribe tu usuario"
+                required
+                autocomplete="off"
+            >
+
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Contraseña</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="8"
+            >
+
+            <input type="checkbox" id="subscribe" name="subscribe" checked>
+            <label for="subscribe">Suscribirse</label>
+
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Masculino</label>
+
+            <input type="date" id="birthday" name="birthday">
+
+            <input
+                type="file"
+                id="avatar"
+                name="avatar"
+                accept="image/*"
+            >
+
+            <input type="range" id="volume" name="volume" min="0" max="100">
+
+            <input type="color" id="color" name="color" value="#ff0000">
+
+            <input type="hidden" name="csrf_token" value="abc123">
+
+            <input type="submit" value="Enviar">
+        </fieldset>
+
+        <textarea
+            id="message"
+            name="message"
+            rows="4"
+            cols="50"
+            placeholder="Escribe tu mensaje"
+        ></textarea>
+
+        <select id="country" name="country">
+            <optgroup label="Europa">
+                <option value="es" selected>España</option>
+                <option value="fr">Francia</option>
+            </optgroup>
+
+            <optgroup label="América">
+                <option value="mx">México</option>
+            </optgroup>
+        </select>
+
+        <button type="submit" class="btn btn-primary" disabled>
+            Enviar formulario
+        </button>
+
+        <button type="reset">Limpiar</button>
+
+        <button type="button">Botón normal</button>
+
+        <progress value="70" max="100">70%</progress>
+
+        <meter value="0.6" min="0" max="1" low="0.3" high="0.8" optimum="0.9">
+        </meter>
+
+    </form>
+
+
+    <!-- ============================================================
+         Semantic Elements
+         ============================================================ -->
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/about">Acerca de</a></li>
+                <li><a href="/contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <article>
+            <header>
+                <h2>Título del artículo</h2>
+                <p>
+                    Publicado el
+                    <time datetime="2026-08-27">
+                        27 de agosto de 2026
+                    </time>
+                </p>
+            </header>
+
+            <section>
+                <h3>Sección del artículo</h3>
+                <p>Contenido de la sección.</p>
+            </section>
+
+            <aside>Contenido relacionado.</aside>
+
+            <footer>Pie del artículo.</footer>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nexum</p>
+        <address>
+            <a href="mailto:info@example.com">info@example.com</a>
+        </address>
+    </footer>
+
+    <details open>
+        <summary>Detalles colapsables</summary>
+        <p>Contenido detallado.</p>
+    </details>
+
+    <dialog open>
+        <p>Diálogo modal.</p>
+    </dialog>
+
+
+    <!-- ============================================================
+         Attributes (data-*, aria-*, eventos)
+         ============================================================ -->
+
+    <div
+        id="main-container"
+        class="container active primary"
+        data-testid="user-card"
+        data-user-id="123"
+        data-config='{"theme":"dark"}'
+        role="main"
+        aria-label="Contenedor principal"
+        aria-hidden="false"
+        aria-expanded="true"
+        aria-controls="dialog"
+        tabindex="0"
+        contenteditable
+        spellcheck="false"
+        translate="no"
+        dir="ltr"
+        title="Contenedor principal"
+    >
+        Contenido
+    </div>
+
+    <button
+        type="button"
+        onclick="console.log('clicked')"
+        onchange="handleChange()"
+        onmouseover="handleOver()"
+        autofocus
+    >
+        Botón con eventos
+    </button>
+
+
+    <!-- ============================================================
+         Custom Elements & Template
+         ============================================================ -->
+
+    <my-element></my-element>
+
+    <my-card user-id="123" theme="dark">
+        <span slot="title">Título personalizado</span>
+    </my-card>
+
+    <template id="user-template">
+        <p>Plantilla</p>
+    </template>
+
+    <slot name="title"></slot>
+
+
+    <!-- ============================================================
+         SVG Inline
+         ============================================================ -->
+
+    <svg
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <circle
+            cx="50"
+            cy="50"
+            r="40"
+            fill="#4f7df3"
+            stroke="black"
+            stroke-width="2"
+        />
+
+        <rect x="10" y="10" width="30" height="30" fill="red"/>
+
+        <path d="M10 10 L 90 90" stroke="green"/>
+    </svg>
+
+
+    <!-- ============================================================
+         Deprecated
+         ============================================================ -->
+
+    <!-- Etiquetas y atributos obsoletos: no usar en proyectos nuevos.
+
+    <center>Texto centrado</center>
+
+    <font color="red" size="4">Texto con fuente</font>
+
+    <big>Texto grande</big>
+
+    <strike>Texto tachado</strike>
+
+    <acronym title="HyperText Markup Language">HTML</acronym>
+
+    <marquee behavior="scroll">Texto en movimiento</marquee>
+
+    <frame src="page.html"></frame>
+
+    <p align="center" bgcolor="yellow">
+        Párrafo con atributos obsoletos
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr><td>Celda</td></tr>
+    </table>
+    -->
+
+
+    <!-- ============================================================
+     * ============================================================
+     * TOKENS NOT APPLICABLE TO HTML
+     * ============================================================
+     *
+     * Keywords & Control Flow     -> JavaScript / CSS
+     * Function Declarations       -> JavaScript
+     * Object Keys / Properties    -> JavaScript / JSON
+     * CSS Properties & Selectors  -> CSS (embebido en <style>)
+     * JSX / TSX Components        -> React / TypeScript
+     * Regular Expressions         -> JavaScript
+     *
+     ============================================================ -->
+
+</body>
+
+</html>

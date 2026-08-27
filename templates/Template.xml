@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ * ============================================================
+ * XML SYNTAX COLOR TEST
+ * ============================================================
+ * Archivo diseñado para probar los diferentes tokens de
+ * coloreado de sintaxis en Visual Studio Code.
+ * ============================================================
+-->
+
+<!-- Instrucción de procesamiento (Processing Instruction) -->
+<?xml-stylesheet type="text/xsl" href="transform.xsl"?>
+
+<!-- Declaración de tipo de documento con DTD interno -->
+<!DOCTYPE configuration [
+    <!ELEMENT configuration (users, settings)>
+    <!ELEMENT users (user*)>
+    <!ELEMENT user (username, email, age, active)>
+    <!ELEMENT username (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT age (#PCDATA)>
+    <!ELEMENT active (#PCDATA)>
+    <!ATTLIST user id CDATA #REQUIRED>
+    <!ATTLIST user role (admin|user|guest) "user">
+    <!ENTITY company "Nexum Corp">
+    <!ENTITY copyright "© 2026 &company;">
+]>
+
+<!-- Elemento raíz con namespaces -->
+<configuration
+    xmlns="http://example.com/default"
+    xmlns:app="http://example.com/app"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://example.com/default config.xsd"
+    version="1.0">
+
+    <!-- ============================================================
+         Comments
+         ============================================================ -->
+
+    <!-- Comentario de una línea -->
+
+    <!--
+     * Comentario multilínea
+     *
+     * TODO: revisar esta sección
+     * FIXME: corregir este comportamiento
+     * NOTE: información importante
+    -->
+
+
+    <!-- ============================================================
+         Elements & Attributes
+         ============================================================ -->
+
+    <!-- Elemento con atributos -->
+    <user
+        id="1"
+        role="admin"
+        app:active="true"
+        xml:lang="es"
+        xml:space="default"
+    >
+        <username>Manu</username>
+        <email>manu@example.com</email>
+        <age>30</age>
+        <active>true</active>
+    </user>
+
+    <!-- Comillas simples y dobles en atributos -->
+    <element
+        double="double-quoted"
+        single='single-quoted'
+        empty=""
+        number="123"
+    />
+
+    <!-- Atributos de datos y accesibilidad -->
+    <widget
+        data-value="123"
+        data-config='{"theme":"dark"}'
+        aria-label="Widget principal"
+        aria-hidden="false"
+    />
+
+    <!-- Elementos vacíos / auto-cerrados -->
+    <br/>
+    <img src="image.png" alt="Ejemplo"/>
+    <empty-element></empty-element>
+    <app:spacer app:size="10" />
+
+    <!-- Anidamiento profundo -->
+    <categories>
+        <category id="1" name="Languages">
+            <language type="compiled">Java</language>
+            <language type="interpreted">Python</language>
+            <language type="hybrid">TypeScript</language>
+        </category>
+
+        <category id="2" name="Formats">
+            <format>JSON</format>
+            <format>XML</format>
+            <format>YAML</format>
+        </category>
+    </categories>
+
+    <!-- Elementos con namespace prefijado -->
+    <app:config app:version="1.0">
+        <app:timeout app:unit="ms">3000</app:timeout>
+        <app:max-users>100</app:max-users>
+        <app:debug>false</app:debug>
+    </app:config>
+
+
+    <!-- ============================================================
+         CDATA
+         ============================================================ -->
+
+    <!-- Secciones CDATA: el contenido no se parsea -->
+    <code language="javascript"><![CDATA[
+function helloWorld() {
+    return "Hello <World> & Friends";
+}
+
+const comparison = 10 > 5 && 10 < 20;
+    ]]></code>
+
+    <regex pattern="email"><![CDATA[^[^\s@]+@[^\s@]+\.[^\s@]+$]]></regex>
+
+    <svg-source><![CDATA[
+<svg viewBox="0 0 10 10">
+    <circle cx="5" cy="5" r="4"/>
+</svg>
+    ]]></svg-source>
+
+
+    <!-- ============================================================
+         Entities
+         ============================================================ -->
+
+    <!-- Entidades predefinidas -->
+    <predefined>
+        &lt;tag&gt;
+        &amp;
+        &apos;
+        &quot;
+    </predefined>
+
+    <!-- Entidades numéricas (decimales) -->
+    <numeric>
+        &#169; &#8212; &#8230; &#128512;
+    </numeric>
+
+    <!-- Entidades hexadecimales -->
+    <hexadecimal>
+        &#x00A9; &#x2014; &#x2026; &#x1F600;
+    </hexadecimal>
+
+    <!-- Entidades personalizadas (definidas en el DTD) -->
+    <custom>
+        &company;
+        &copyright;
+    </custom>
+
+
+    <!-- ============================================================
+         Mixed Content
+         ============================================================ -->
+
+    <!-- Contenido mixto: texto + elementos -->
+    <paragraph>
+        Este texto incluye
+        <bold>negrita</bold>,
+        <italic>itálica</italic>,
+        <link href="https://example.com">un enlace</link>
+        y texto normal.
+    </paragraph>
+
+    <!-- Contenido con espacios preservados -->
+    <message xml:space="preserve">
+        Texto con    espacios    internos.
+    </message>
+
+    <!-- Instrucciones de procesamiento dentro del documento -->
+    <document>
+        <?php echo "PHP embebido"; ?>
+        <content>Contenido</content>
+        <?processing-instruction data?>
+    </document>
+
+    <!-- Referencias a otros recursos -->
+    <resources>
+        <stylesheet href="styles.css" type="text/css"/>
+        <script src="app.js" type="text/javascript"/>
+        <include href="module.xml" parse="xml"/>
+    </resources>
+
+
+    <!-- ============================================================
+         Configuración realista
+         ============================================================ -->
+
+    <settings>
+        <server>
+            <host>localhost</host>
+            <port>3000</port>
+            <ssl enabled="false"/>
+        </server>
+
+        <database>
+            <driver>postgresql</driver>
+            <connection-pool min="5" max="20"/>
+            <options>
+                <option name="autocommit" value="true"/>
+                <option name="timeout" value="30"/>
+            </options>
+        </database>
+
+        <logging level="debug">
+            <appender type="console"/>
+            <appender type="file">
+                <param name="path" value="logs/app.log"/>
+                <param name="max-size" value="10MB"/>
+            </appender>
+        </logging>
+
+        <!-- Lista de usuarios -->
+        <users>
+            <user id="1" role="admin">
+                <username>admin</username>
+                <email>admin@example.com</email>
+                <age>40</age>
+                <active>true</active>
+            </user>
+
+            <user id="2" role="user">
+                <username>Manu</username>
+                <email>manu@example.com</email>
+                <age>30</age>
+                <active>true</active>
+            </user>
+
+            <user id="3" role="guest">
+                <username>invitado</username>
+                <email>guest@example.com</email>
+                <age>0</age>
+                <active>false</active>
+            </user>
+        </users>
+    </settings>
+
+
+    <!-- ============================================================
+         Invalid / Deprecated
+         ============================================================ -->
+
+    <!--
+     * Sintaxis inválida intencionadamente comentada:
+     *
+     * <invalid>&unescaped; ampersand sin escapar</invalid>
+     * <invalid attr="unclosed>atributo sin cerrar</invalid>
+     * <invalid>comentario anidado dentro de otro comentario</invalid>
+     * <2invalid>etiqueta que empieza con número</2invalid>
+     * <invalid>attr="a" attr="b" atributos duplicados</invalid>
+     *
+     * Características obsoletas (legacy):
+     *
+     * DTD externo: <!DOCTYPE config SYSTEM "config.dtd">
+     * Encoding obsoleto: <?xml version="1.0" encoding="ISO-8859-1"?>
+    -->
+
+
+    <!-- ============================================================
+     * ============================================================
+     * TOKENS NOT APPLICABLE TO XML
+     * ============================================================
+     *
+     * Keywords & Control Flow    -> lenguajes de programación
+     * Function Declarations      -> lenguajes de programación
+     * Object Keys / Properties   -> JavaScript / JSON
+     * CSS Properties             -> CSS
+     * JSX / TSX Components       -> React / TypeScript
+     * Template Literals          -> JavaScript
+     *
+     ============================================================ -->
+
+</configuration>

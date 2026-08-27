@@ -1,0 +1,189 @@
+{
+    "_metadata": {
+        "name": "JSON Syntax Color Test",
+        "description": "Archivo diseñado para probar los diferentes tokens de coloreado de sintaxis en Visual Studio Code.",
+        "version": "1.0.0",
+        "note": "JSON no admite comentarios. Este archivo es JSON válido y parseable."
+    },
+
+    "primitiveTypes": {
+        "string": "Hello World",
+        "emptyString": "",
+        "escapedQuote": "He said: \"Hello\"",
+        "escapedBackslash": "C:\\Users\\Manu",
+        "escapedNewline": "Line 1\nLine 2",
+        "escapedTab": "Column 1\tColumn 2",
+        "escapedCarriageReturn": "Text\r",
+        "escapedBackspace": "Text\b",
+        "escapedFormFeed": "Text\f",
+        "escapedForwardSlash": "path\/to\/file",
+        "escapedUnicode": "\u00A9",
+        "escapedUnicodeEmoji": "\uD83D\uDE00",
+        "integer": 123,
+        "negativeInteger": -123,
+        "float": 123.456,
+        "negativeFloat": -0.5,
+        "leadingZeroFloat": 0.5,
+        "exponent": 1.23e10,
+        "uppercaseExponent": 1.23E10,
+        "negativeExponent": 1.23e-10,
+        "bigNumber": 12345678901234567890,
+        "zero": 0,
+        "negativeZero": -0,
+        "booleanTrue": true,
+        "booleanFalse": false,
+        "nullValue": null
+    },
+
+    "stringsWithReservedWords": {
+        "reservedWords": [
+            "true",
+            "false",
+            "null",
+            "undefined",
+            "NaN",
+            "Infinity"
+        ],
+        "numbersAsStrings": ["123", "1.23e10", "0xFF"],
+        "note": "Fuera de strings serían inválidos o interpretados de otra forma"
+    },
+
+    "arrays": {
+        "numbers": [1, 2, 3, 4, 5],
+        "strings": ["JavaScript", "Python", "Java", "TypeScript"],
+        "booleans": [true, false, true],
+        "mixed": [1, "two", true, null, [5, 6], {"seven": 7}],
+        "nested": [
+            [1, 2, 3],
+            [4, 5, 6],
+            [
+                [7, 8],
+                [9, 10]
+            ]
+        ],
+        "empty": []
+    },
+
+    "objects": {
+        "simple": {
+            "id": 1,
+            "name": "Manu",
+            "active": true
+        },
+        "nested": {
+            "user": {
+                "id": 1,
+                "username": "Manu",
+                "email": "manu@example.com",
+                "address": {
+                    "street": "Main Street",
+                    "city": "Madrid",
+                    "country": "Spain",
+                    "coordinates": {
+                        "latitude": 40.4168,
+                        "longitude": -3.7038
+                    }
+                },
+                "roles": ["admin", "user"],
+                "settings": {
+                    "darkMode": true,
+                    "notifications": false,
+                    "language": "es"
+                }
+            }
+        },
+        "empty": {}
+    },
+
+    "keysWithSpecialNames": {
+        "": "clave vacía",
+        "with space": "espacios",
+        "with-dash": "guiones",
+        "with.dot": "puntos",
+        "123": "números como clave",
+        "true": "palabra reservada como clave",
+        "null": "null como clave",
+        "año": "caracteres especiales",
+        "clave-con-🔑": "emojis"
+    },
+
+    "configurationExample": {
+        "application": {
+            "name": "Nexum",
+            "version": "1.0.0",
+            "debug": false,
+            "features": {
+                "darkMode": true,
+                "betaFeatures": false,
+                "maxUsers": 100
+            }
+        },
+        "server": {
+            "host": "0.0.0.0",
+            "port": 3000,
+            "timeout": 30000,
+            "ssl": {
+                "enabled": false,
+                "certificate": null
+            },
+            "cors": {
+                "origins": [
+                    "https://example.com",
+                    "https://app.example.com"
+                ],
+                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "credentials": true
+            }
+        },
+        "database": {
+            "driver": "postgresql",
+            "url": "postgresql://localhost:5432/nexum",
+            "pool": {
+                "min": 5,
+                "max": 20,
+                "idleTimeout": 30000
+            }
+        },
+        "logging": {
+            "level": "debug",
+            "format": "json",
+            "outputs": ["console", "file"]
+        }
+    },
+
+    "userExample": {
+        "id": 1,
+        "username": "Manu",
+        "email": "manu@example.com",
+        "age": 30,
+        "active": true,
+        "balance": 1234.56,
+        "rating": 4.9,
+        "tags": ["admin", "developer"],
+        "metadata": null,
+        "createdAt": "2026-08-27T10:30:00Z",
+        "scores": [98.5, 87.25, 100],
+        "profile": {
+            "bio": "Developer & Theme Designer",
+            "website": "https://example.com",
+            "social": {
+                "github": "https://github.com/manu",
+                "twitter": "@manu"
+            }
+        }
+    },
+
+    "_tokensNotApplicable": {
+        "note": "Tokens que no forman parte de JSON puro",
+        "comments": "JSON no admite comentarios (los archivos .jsonc sí)",
+        "singleQuotedStrings": "JSON solo admite comillas dobles",
+        "trailingCommas": "JSON no admite comas finales",
+        "hexadecimalNumbers": "JSON no admite literales hexadecimales (0xFF)",
+        "octalNumbers": "JSON no admite literales octales",
+        "templateLiterals": "JSON no admite template literals",
+        "functions": "JSON no admite funciones",
+        "undefined": "JSON usa null, no undefined",
+        "keywordsAndControlFlow": "No aplican a un formato de datos",
+        "regularExpressions": "JSON no admite expresiones regulares literales"
+    }
+}

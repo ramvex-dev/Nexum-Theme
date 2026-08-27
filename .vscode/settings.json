@@ -1,0 +1,7 @@
+{
+  "xml.downloadExternalResources.enabled": true,
+  "php.validate.enable": false,
+  "js/ts.validate.enabled": false,
+  "xml.validation.enabled": false,
+  "yaml.validate": false,
+}

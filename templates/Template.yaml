@@ -1,0 +1,366 @@
+%YAML 1.2
+---
+# ============================================================
+# YAML SYNTAX COLOR TEST
+# ============================================================
+# Archivo diseñado para probar los diferentes tokens de
+# coloreado de sintaxis en Visual Studio Code.
+# ============================================================
+
+
+# ============================================================
+# Comments
+# ============================================================
+
+# Comentario de una línea
+
+# TODO: revisar esta sección
+# FIXME: corregir este comportamiento
+# NOTE: información importante
+
+
+# ============================================================
+# Scalars / Tipos básicos
+# ============================================================
+
+# Strings
+plainString: Hello World
+doubleQuoted: "Hello World"
+singleQuoted: 'Hello World'
+stringWithColon: "Key: value"
+quotedHash: "Color #FF0000"
+doubleQuotedEscape: "He said: \"Hello\""
+singleQuotedEscape: 'It''s YAML'
+unicodeEscaped: "Copyright \u00A9"
+hexEscaped: "Hex \x41"
+emptyString: ""
+
+# Números
+integer: 123
+negativeInteger: -123
+positiveSign: +42
+float: 123.456
+negativeFloat: -0.5
+exponent: 1.23e10
+negativeExponent: 1.23e-10
+hexadecimal: 0xFF
+octal: 0o755
+infinity: .inf
+negativeInfinity: -.inf
+notANumber: .nan
+underscoreNumber: 1_000_000
+
+# Booleanos
+booleanTrue: true
+booleanFalse: false
+booleanTrueCapital: True
+booleanFalseCapital: FALSE
+yaml11Yes: yes
+yaml11No: no
+yaml11On: on
+yaml11Off: off
+
+# Null
+nullKeyword: null
+nullTilde: ~
+nullEmpty:
+nullCapital: Null
+
+# Fechas y timestamps
+date: 2026-08-27
+datetime: 2026-08-27T10:30:00Z
+datetimeOffset: 2026-08-27T10:30:00+02:00
+
+# Valores entrecomillados que parecen otros tipos
+specialStrings: ["true", "false", "null", "123"]
+quotedNumber: "123"
+quotedBoolean: "true"
+
+
+# ============================================================
+# Mapeos anidados (Mappings)
+# ============================================================
+
+user:
+  id: 1
+  username: Manu
+  email: manu@example.com
+  active: true
+
+  address:
+    street: Main Street
+    city: Madrid
+    country: Spain
+
+    coordinates:
+      latitude: 40.4168
+      longitude: -3.7038
+
+  roles:
+    - admin
+    - user
+
+
+# ============================================================
+# Secuencias (Sequences)
+# ============================================================
+
+languages:
+  - JavaScript
+  - Python
+  - Java
+  - TypeScript
+
+numbers:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+
+# Secuencias anidadas
+matrix:
+  - - 1
+    - 2
+    - 3
+  - - 4
+    - 5
+    - 6
+
+# Secuencia de mapeos
+users:
+  - id: 1
+    name: Manu
+    active: true
+
+  - id: 2
+    name: Juan
+    active: false
+
+  - id: 3
+    name: Pedro
+    active: true
+
+
+# ============================================================
+# Flow Style (estilo JSON)
+# ============================================================
+
+flowSequence: [1, 2, 3, 4, 5]
+
+flowStrings: ["JavaScript", "Python", "Java"]
+
+flowMapping: { name: Manu, age: 30, active: true }
+
+flowNested: { user: { id: 1, name: Manu }, tags: [admin, user] }
+
+mixedFlow:
+  - { id: 1, name: Manu }
+  - [true, false, null]
+  - { nested: [1, 2, 3] }
+
+emptySequence: []
+emptyMapping: {}
+
+
+# ============================================================
+# Strings multilínea
+# ============================================================
+
+# Literal Block (|) preserva los saltos de línea
+literalBlock: |
+  Hello World
+  This is a multiline string.
+  Line breaks are preserved.
+
+# Literal Block con strip (|-) elimina el salto final
+literalBlockStrip: |-
+  Line 1
+  Line 2
+
+# Literal Block con keep (|+) mantiene los saltos extra
+literalBlockKeep: |+
+  Line 1
+
+# Folded Block (>) colapsa los saltos de línea en espacios
+foldedBlock: >
+  Hello World
+  This is a folded string.
+  Lines are joined with spaces.
+
+# Folded Block con strip (>-)
+foldedBlockStrip: >-
+  Folded
+  Content
+
+# Indicador de indentación explícita
+literalIndented: |2
+    Texto con indentación explícita
+
+
+# ============================================================
+# Anclas y Alias (Anchors & Aliases)
+# ============================================================
+
+baseConfig: &base
+  host: localhost
+  port: 3000
+  timeout: 3000
+
+development:
+  <<: *base
+  debug: true
+  host: dev.example.com
+
+production:
+  <<: *base
+  debug: false
+  host: example.com
+  port: 8080
+
+staging:
+  <<: *base
+  debug: false
+
+greeting: &greeting Hello World
+repeatedGreeting: *greeting
+
+sharedList: &colors
+  - red
+  - green
+  - blue
+
+moreColors:
+  - *colors
+  - yellow
+  - purple
+
+
+# ============================================================
+# Tags (etiquetas de tipo explícito)
+# ============================================================
+
+explicitString: !!str 123
+explicitInt: !!int "123"
+explicitFloat: !!float "3.14"
+explicitBoolean: !!bool "true"
+explicitNull: !!null "null"
+explicitBinary: !!binary aGVsbG8=
+
+sequenceTag: !!seq
+  - one
+  - two
+
+mappingTag: !!map
+  key: value
+
+customTag: !CustomType
+  field: value
+
+timestampTag: !!timestamp 2026-08-27T10:30:00Z
+
+
+# ============================================================
+# Claves complejas
+# ============================================================
+
+? complexKey
+: complexValue
+
+? [1, 2, 3]
+: sequenceAsKey
+
+? { name: Manu }
+: mappingAsKey
+
+? - a
+  - b
+: multiLineKey
+
+
+# ============================================================
+# Configuración realista
+# ============================================================
+
+application:
+  name: Nexum
+  version: 1.0.0
+  description: >
+    Aplicación de ejemplo con
+    configuración multilínea.
+
+  server:
+    host: 0.0.0.0
+    port: 3000
+    cors:
+      origins:
+        - https://example.com
+        - https://app.example.com
+      methods: [GET, POST, PUT, DELETE]
+      credentials: true
+
+  database:
+    driver: postgresql
+    url: postgresql://localhost:5432/nexum
+    pool:
+      min: 5
+      max: 20
+      idleTimeout: 30000
+
+  logging:
+    level: debug
+    format: json
+    outputs:
+      - console
+      - file
+
+  features:
+    darkMode: true
+    betaFeatures: false
+    maxUsers: 100
+
+
+# ============================================================
+# Multi-documento
+# ============================================================
+---
+# Segundo documento
+document: second
+items:
+  - one
+  - two
+
+---
+# Tercer documento
+document: third
+...
+
+# ============================================================
+# Invalid / No soportado
+# ============================================================
+
+# Sintaxis inválida (no debe usarse):
+#
+# invalidIndent:
+#    bad: indentation
+#      worse: mixed
+#
+# invalidTab:
+# 	key: la indentación con tabulaciones no está permitida
+#
+# duplicate: key
+# duplicate: key
+
+# ============================================================
+# TOKENS NOT APPLICABLE TO YAML
+# ============================================================
+#
+# Function Declarations     -> lenguajes de programación
+# Object Properties (JS)    -> JavaScript / JSON
+# Tags (HTML/XML)           -> HTML / XML
+# Attributes (HTML/XML)     -> HTML / XML
+# CSS Properties            -> CSS
+# JSX / TSX Components      -> React / TypeScript
+# Regular Expressions       -> lenguajes de programación
+#
+# ============================================================

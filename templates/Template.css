@@ -1,0 +1,940 @@
+@charset "UTF-8";
+
+/*
+ * ============================================================
+ * CSS SYNTAX COLOR TEST
+ * ============================================================
+ * Archivo diseñado para probar los diferentes tokens de
+ * coloreado de sintaxis en Visual Studio Code.
+ * ============================================================
+ */
+
+
+/* ============================================================
+   Comments
+   ============================================================ */
+
+/* Comentario de una línea */
+
+/*
+ * Comentario multilínea
+ *
+ * TODO: revisar estos estilos
+ * FIXME: corregir este comportamiento
+ * NOTE: información importante
+ */
+
+
+/* ============================================================
+   Custom Properties (Variables CSS)
+   ============================================================ */
+
+:root {
+    --primary-color: #4f7df3;
+    --secondary-color: rgb(102, 143, 244);
+    --accent-color: hsl(220, 88%, 63%);
+    --text-color: #333333;
+    --background-color: white;
+    --font-family: "Inter", system-ui, sans-serif;
+    --font-size-base: 16px;
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --transition-duration: 300ms;
+    --z-index-modal: 1000;
+}
+
+
+/* ============================================================
+   At-rules globales
+   ============================================================ */
+
+@import url("reset.css");
+@import "theme.css" layer(theme);
+@import "print.css" print;
+
+@namespace svg url("http://www.w3.org/2000/svg");
+
+
+/* ============================================================
+   Selectores básicos
+   ============================================================ */
+
+/* Universal */
+* {
+    box-sizing: border-box;
+}
+
+/* Elemento */
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Clase */
+.container {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+/* ID */
+#main-content {
+    padding: 20px;
+}
+
+/* Agrupación de selectores */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    margin-block: 0.5em;
+}
+
+
+/* ============================================================
+   Selectores de atributo
+   ============================================================ */
+
+a[target="_blank"] {
+    text-decoration: underline;
+}
+
+input[type="text"] {
+    border: 1px solid #cccccc;
+}
+
+[class~="button"] {
+    cursor: pointer;
+}
+
+[href^="https://"] {
+    color: var(--primary-color);
+}
+
+[href$=".pdf"] {
+    color: red;
+}
+
+[data-value*="test"] {
+    background-color: yellow;
+}
+
+[lang|="es"] {
+    font-style: italic;
+}
+
+input[disabled] {
+    opacity: 0.5;
+}
+
+
+/* ============================================================
+   Combinadores
+   ============================================================ */
+
+/* Descendiente */
+.card .title {
+    font-size: 1.25rem;
+}
+
+/* Hijo directo */
+.card > .content {
+    padding: 10px;
+}
+
+/* Hermano adyacente */
+.label + .input {
+    margin-top: 4px;
+}
+
+/* Hermano general */
+.label ~ .hint {
+    color: gray;
+}
+
+
+/* ============================================================
+   Pseudo-clases
+   ============================================================ */
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+a:focus-visible {
+    outline-offset: 2px;
+}
+
+a:active {
+    color: darkblue;
+}
+
+button:disabled,
+button:enabled {
+    cursor: pointer;
+}
+
+input:checked {
+    accent-color: var(--primary-color);
+}
+
+input:required,
+input:optional {
+    border-color: currentColor;
+}
+
+input:read-only {
+    background-color: #f5f5f5;
+}
+
+input:placeholder-shown {
+    border-style: dashed;
+}
+
+input:valid,
+input:invalid {
+    outline: none;
+}
+
+li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li:only-child {
+    font-style: italic;
+}
+
+li:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+li:nth-child(odd) {
+    background-color: transparent;
+}
+
+li:nth-child(3n + 1) {
+    padding-left: 10px;
+}
+
+li:nth-last-child(2) {
+    color: gray;
+}
+
+li:first-of-type,
+li:last-of-type {
+    list-style: none;
+}
+
+tr:nth-of-type(even) {
+    background-color: #f0f0f0;
+}
+
+:not(.excluded) {
+    margin: 0;
+}
+
+:is(h1, h2, h3) {
+    line-height: 1.2;
+}
+
+:where(ul, ol) {
+    padding-left: 20px;
+}
+
+:has(> img) {
+    overflow: hidden;
+}
+
+:empty {
+    display: none;
+}
+
+:target {
+    scroll-margin-top: 20px;
+}
+
+:root:has(.dark-mode) {
+    --background-color: #1e1e1e;
+}
+
+
+/* ============================================================
+   Pseudo-elementos
+   ============================================================ */
+
+.quote::before {
+    content: "“";
+}
+
+.quote::after {
+    content: "”";
+}
+
+p::first-line {
+    font-weight: bold;
+}
+
+p::first-letter {
+    font-size: 2em;
+    float: left;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+input::placeholder {
+    color: gray;
+    opacity: 1;
+}
+
+li::marker {
+    color: var(--primary-color);
+}
+
+dialog::backdrop {
+    background-color: rgb(0 0 0 / 50%);
+}
+
+
+/* ============================================================
+   Colores
+   ============================================================ */
+
+.colors {
+    color: red;                              /* Nombrado */
+    color: #ff0000;                          /* Hexadecimal 6 dígitos */
+    color: #f00;                             /* Hexadecimal 3 dígitos */
+    color: #ff0000ff;                        /* Hexadecimal con alfa */
+    color: #f00f;                            /* Hexadecimal corta con alfa */
+    color: rgb(255, 0, 0);                   /* RGB */
+    color: rgba(255, 0, 0, 0.5);             /* RGBA */
+    color: rgb(255 0 0 / 50%);               /* Sintaxis moderna */
+    color: hsl(0, 100%, 50%);                /* HSL */
+    color: hsla(0, 100%, 50%, 0.5);          /* HSLA */
+    color: hwb(0 0% 0%);                     /* HWB */
+    color: lab(50% 40 59.5);
+    color: lch(50% 70 40);
+    color: oklch(0.6 0.2 25);
+    color: color-mix(in srgb, red, blue);
+    color: transparent;
+    color: currentColor;
+    color: inherit;
+    color: initial;
+    color: unset;
+    color: revert;
+}
+
+
+/* ============================================================
+   Unidades
+   ============================================================ */
+
+.units {
+    width: 100px;                            /* Píxeles */
+    width: 50%;                              /* Porcentaje */
+    width: 10em;                             /* Relativa al padre */
+    width: 2rem;                             /* Relativa a la raíz */
+    width: 50vw;                             /* Viewport width */
+    width: 50vh;                             /* Viewport height */
+    width: 25vmin;
+    width: 25vmax;
+    width: 10ch;
+    width: 10ex;
+    width: 10pt;
+    width: 10pc;
+    width: 10in;
+    width: 10cm;
+    width: 10mm;
+    width: 10q;
+    width: 1fr;                              /* Fracción de grid */
+    width: calc(100% - 20px);                /* Función calc */
+    width: clamp(200px, 50%, 500px);
+    width: min(100px, 10vw);
+    width: max(100px, 10vw);
+    width: fit-content;
+    width: min-content;
+    width: max-content;
+    width: auto;
+    line-height: 1.5;                        /* Sin unidad */
+    rotate: 45deg;                           /* Ángulos */
+    transition-duration: 300ms;              /* Milisegundos */
+    transition-duration: 0.3s;               /* Segundos */
+}
+
+
+/* ============================================================
+   Tipografía
+   ============================================================ */
+
+.typography {
+    font-family: var(--font-family);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-weight: bold;
+    font-weight: 400;
+    font-weight: 700;
+    font-style: italic;
+    font-variant: small-caps;
+    font-stretch: condensed;
+    line-height: 1.6;
+    line-height: 24px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    word-spacing: 2px;
+    text-align: center;
+    text-align-last: right;
+    text-decoration: underline dotted red;
+    text-decoration-line: line-through;
+    text-transform: uppercase;
+    text-indent: 2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    quotes: "“" "”";
+}
+
+
+/* ============================================================
+   Box Model
+   ============================================================ */
+
+.box-model {
+    width: 300px;
+    height: 200px;
+    min-width: 100px;
+    max-width: 500px;
+    min-height: 100px;
+    max-height: 500px;
+    aspect-ratio: 16 / 9;
+    padding: 10px;
+    padding: 10px 20px;
+    padding: 10px 20px 30px;
+    padding: 10px 20px 30px 40px;
+    padding-block: 10px;
+    padding-inline: 20px;
+    margin: 10px auto;
+    margin-block: 0;
+    margin-inline: auto;
+    border: 1px solid #cccccc;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: var(--primary-color);
+    border-radius: 8px;
+    border-radius: 50%;
+    border-radius: 10px 20px 30px 40px;
+    outline: 2px solid red;
+    outline-offset: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+    box-shadow:
+        inset 0 1px 3px black,
+        0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================================
+   Background
+   ============================================================ */
+
+.background {
+    background-color: var(--secondary-color);
+    background-image: url("pattern.png");
+    background-image: linear-gradient(to right, red, blue);
+    background-image: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    background-image: radial-gradient(circle, white, black);
+    background-image: conic-gradient(red, yellow, green);
+    background-image: repeating-linear-gradient(
+        45deg,
+        #eee 0,
+        #eee 10px,
+        #fff 10px,
+        #fff 20px
+    );
+    background-size: cover;
+    background-size: contain;
+    background-size: 100% auto;
+    background-position: center;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-origin: border-box;
+    background-clip: padding-box;
+    background:
+        url("hero.jpg") no-repeat center / cover,
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+
+/* ============================================================
+   Flexbox
+   ============================================================ */
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    gap: 10px;
+    gap: 10px 20px;
+}
+
+.flex-item {
+    flex: 1;
+    flex: 1 1 auto;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    align-self: flex-end;
+    order: -1;
+}
+
+
+/* ============================================================
+   Grid
+   ============================================================ */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr 2fr minmax(100px, 300px);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    gap: 16px;
+    justify-items: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.grid-item {
+    grid-column: 1 / 3;
+    grid-column: span 2;
+    grid-column: 2 / -1;
+    grid-row: 1 / 3;
+    grid-area: main;
+    justify-self: end;
+    align-self: start;
+    z-index: 1;
+}
+
+
+/* ============================================================
+   Positioning & Overflow
+   ============================================================ */
+
+.positioning {
+    position: relative;
+    position: absolute;
+    position: fixed;
+    position: sticky;
+    position: static;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0;
+    inset-inline: 10px;
+    z-index: var(--z-index-modal);
+}
+
+.overflow-examples {
+    overflow: hidden;
+    overflow: auto;
+    overflow: scroll;
+    overflow: visible;
+    overflow: clip;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: gray transparent;
+}
+
+
+/* ============================================================
+   Transitions
+   ============================================================ */
+
+.transition {
+    transition: all 0.3s ease-in-out;
+    transition-property: color, background-color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 100ms;
+    will-change: transform, opacity;
+}
+
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
+.animation {
+    animation: slide-in 1s ease-in-out infinite alternate;
+    animation-name: slide-in;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 3;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    animation-delay: 0.5s;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ============================================================
+   Transforms
+   ============================================================ */
+
+.transforms {
+    transform: translate(10px, 20px);
+    transform: translateX(50%);
+    transform: translateY(-10px);
+    transform: scale(1.5);
+    transform: scale(2, 0.5);
+    transform: rotate(45deg);
+    transform: rotate3d(1, 1, 0, 30deg);
+    transform: skew(10deg, 5deg);
+    transform: matrix(1, 0, 0, 1, 10, 20);
+    transform: perspective(500px) rotateY(20deg);
+    transform-origin: center;
+    transform-origin: top left;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    backface-visibility: hidden;
+}
+
+
+/* ============================================================
+   Filters & Effects
+   ============================================================ */
+
+.filters {
+    filter: blur(5px);
+    filter: brightness(1.2);
+    filter: contrast(120%);
+    filter: grayscale(50%);
+    filter: sepia(0.5);
+    filter: hue-rotate(90deg);
+    filter: saturate(200%);
+    filter: invert(100%);
+    filter: opacity(50%);
+    filter: drop-shadow(4px 4px 8px black);
+    backdrop-filter: blur(10px);
+    mix-blend-mode: multiply;
+    isolation: isolate;
+    opacity: 0.5;
+    cursor: pointer;
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none;
+    resize: both;
+    touch-action: manipulation;
+    column-count: 3;
+    column-gap: 20px;
+    column-rule: 1px solid #ccc;
+}
+
+
+/* ============================================================
+   Media Queries
+   ============================================================ */
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+    .sidebar {
+        display: block;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #eeeeee;
+        --background-color: #1e1e1e;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animation {
+        animation: none;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .button:hover {
+        background-color: var(--primary-color);
+    }
+}
+
+@media print {
+    body {
+        color: black;
+        background: none;
+    }
+}
+
+
+/* ============================================================
+   Feature Queries
+   ============================================================ */
+
+@supports (display: grid) {
+    .layout {
+        display: grid;
+    }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .modal {
+        background-color: rgb(0 0 0 / 80%);
+    }
+}
+
+@supports selector(:focus-visible) {
+    button:focus-visible {
+        outline: 2px solid var(--primary-color);
+    }
+}
+
+
+/* ============================================================
+   Container Queries
+   ============================================================ */
+
+.card-container {
+    container-type: inline-size;
+    container-name: card;
+}
+
+@container card (min-width: 400px) {
+    .card {
+        flex-direction: row;
+    }
+}
+
+
+/* ============================================================
+   Font Face
+   ============================================================ */
+
+@font-face {
+    font-family: "Nexum Sans";
+    src:
+        url("fonts/nexum-sans.woff2") format("woff2"),
+        url("fonts/nexum-sans.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0025-00FF, U+0131;
+}
+
+
+/* ============================================================
+   Layers
+   ============================================================ */
+
+@layer base, components, utilities;
+
+@layer base {
+    a {
+        color: inherit;
+    }
+}
+
+@layer components {
+    .button {
+        padding: 8px 16px;
+    }
+}
+
+
+/* ============================================================
+   Especificidad / !important / Prefijos
+   ============================================================ */
+
+#important {
+    color: red !important;
+}
+
+/* Prefijos de navegadores (legacy) */
+.prefixes {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-box-shadow: 0 2px 4px black;
+    box-shadow: 0 2px 4px black;
+}
+
+
+/* ============================================================
+   CSS Nesting
+   ============================================================ */
+
+.nesting {
+    color: black;
+
+    &:hover {
+        color: var(--primary-color);
+    }
+
+    & > .child {
+        padding: 10px;
+    }
+
+    &.modifier {
+        font-weight: bold;
+    }
+
+    @media (min-width: 600px) {
+        padding: 20px;
+    }
+}
+
+
+/* ============================================================
+   Funciones & Counters
+   ============================================================ */
+
+body {
+    counter-reset: section;
+}
+
+h2::before {
+    counter-increment: section;
+    content: "Sección " counter(section) ": ";
+}
+
+.content::after {
+    content: attr(data-label);
+    content: url("icon.svg");
+}
+
+
+/* ============================================================
+   Invalid / Deprecated
+   ============================================================ */
+
+/*
+ * Sintaxis inválida intencionadamente comentada:
+ *
+ * .invalid {
+ *     color: ;
+ *     width: auto auto;
+ *     margin: 10;;
+ * }
+ */
+
+/*
+ * Propiedades obsoletas (legacy):
+ *
+ * .deprecated {
+ *     filter: alpha(opacity=50);
+ *     behavior: url(#default#VML);
+ *     zoom: 1;
+ *     -ms-filter: "progid:DXImageTransform";
+ * }
+ */
+
+
+/*
+ * ============================================================
+ * TOKENS NOT APPLICABLE TO CSS
+ * ============================================================
+ *
+ * Keywords & Control Flow    -> JavaScript
+ * Template Literals          -> JavaScript
+ * Function Declarations      -> JavaScript
+ * Object Keys / Properties   -> JavaScript / JSON
+ * Tags (HTML/XML)            -> HTML / XML
+ * Attributes (HTML/XML)      -> HTML / XML (excepto attr() en CSS)
+ * JSX / TSX Components       -> React / TypeScript
+ * Regular Expressions        -> JavaScript
+ *
+ */
